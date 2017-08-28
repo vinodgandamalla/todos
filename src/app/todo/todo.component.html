@@ -1,0 +1,5 @@
+<div>
+  <span [ngClass]="{complete: item.complete}">{{item.label}}</span>
+  <button type="button" (click)="onChange.emit({todo: item})">Done</button>
+  <button type="button" (click)="onRemove.emit({todo: item})">Delete</button>
+</div>
