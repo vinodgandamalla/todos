@@ -1,10 +1,6 @@
 <div>
-
-  <span *ngIf="edit === false" [ngClass]="{complete: item.complete}">{{item.label}}</span>
-  <input *ngIf="edit === true" type="text" [(ngModel)]="item.label" />
-  <input type="checkbox" [checked]="item.complete" (click)="onChange.emit({todo: item})" />
-  <!--<!--<button type=" button " (click)="onChange.emit({todo: item}) ">Done</button>-->
-  <button *ngIf="edit === false" type=" button " (click)="onEdit()">Edit</button>
-  <button *ngIf="edit === true" type=" button " (click)="onSae.emit({todo: item})">Save</button>
-  <button type=" button " (click)="onRemove.emit({todo: item}) ">Delete</button>
+  <span [ngClass]="{complete: item.complete}">{{item.label}}</span>
+  <input type="checkbox" [checked]="item.complete" (click)="this.todoService.completeTodo({todo: item})" />
+  <a [routerLink]="['/todo/edit', item.id]"> edit</a>
+  <button type=" button " (click)="this.todoService.removeTodo({todo: item}) ">Delete</button>
 </div>

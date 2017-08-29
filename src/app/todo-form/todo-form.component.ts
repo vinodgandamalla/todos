@@ -1,19 +1,18 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-
+import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html'
 })
 export class TodoFormComponent {
   label: string;
-  @Output() onAdd = new EventEmitter();
-
+  constructor(private todoService: TodoService) {}
   submit() {
     if (!this.label) {
       return;
     }
     {
-      this.onAdd.emit({ label: this.label });
+      this.todoService.addTodo({ label: this.label });
       this.label = '';
     }
   }

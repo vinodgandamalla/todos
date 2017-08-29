@@ -1,13 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
+import { TodoService } from '../todo.service';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent {
-  @Input() todos;
-  @Output() onComplete = new EventEmitter();
-  @Output() onDelete = new EventEmitter();
-  @Output() onSave = new EventEmitter();
+  constructor(public todoService: TodoService) {}
 }

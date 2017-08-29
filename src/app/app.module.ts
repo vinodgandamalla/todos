@@ -9,8 +9,13 @@ import { TodoService } from './todo.service';
 import { FormsModule } from '@angular/forms';
 import { TodoComponent } from './todo/todo.component';
 import { Routes, RouterModule } from '@angular/router';
+import { EditTodoComponent } from './edit-todo/edit-todo.component';
 
-export const ROUTES: Routes = [];
+export const ROUTES: Routes = [
+  { path: '', component: TodosComponent },
+  { path: 'todo/edit/:id', component: EditTodoComponent },
+  { path: 'todo/add', component: TodoFormComponent }
+];
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ export const ROUTES: Routes = [];
     TodosComponent,
     TodoFormComponent,
     TodoListComponent,
-    TodoComponent
+    TodoComponent,
+    EditTodoComponent
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(ROUTES)],
   providers: [TodoService],
