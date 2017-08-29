@@ -22,11 +22,22 @@ export class TodosComponent implements OnInit {
     // console.log(todo);
     this.todos = this.todos.map(
       item =>
-        item.id === todo.id ? Object.assign({}, item, { complete: true }) : item
+        item.id === todo.id
+          ? Object.assign({}, item, { complete: !item.complete })
+          : item
     );
   }
 
   removeTodo({ todo }) {
     this.todos = this.todos.filter(({ id }) => id !== todo.id);
+  }
+
+  saveTodo({ todo }) {
+    this.todos = this.todos.map(
+      item =>
+        item.id === todo.id
+          ? Object.assign({}, item, { complete: !todo.label })
+          : item
+    );
   }
 }

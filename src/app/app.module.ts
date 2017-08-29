@@ -8,6 +8,9 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoService } from './todo.service';
 import { FormsModule } from '@angular/forms';
 import { TodoComponent } from './todo/todo.component';
+import { Routes, RouterModule } from '@angular/router';
+
+export const ROUTES: Routes = [];
 
 @NgModule({
   declarations: [
@@ -17,7 +20,7 @@ import { TodoComponent } from './todo/todo.component';
     TodoListComponent,
     TodoComponent
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(ROUTES)],
   providers: [TodoService],
   bootstrap: [AppComponent]
 })

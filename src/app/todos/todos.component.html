@@ -1,5 +1,5 @@
 <div>
   <app-todo-form (onAdd)="addTodo($event)"> </app-todo-form>
-  <app-todo-list [todos]="todos" (onComplete)="completeTodo($event)" (onDelete)="removeTodo($event)">
+  <app-todo-list [todos]="todos" (onComplete)="completeTodo($event)" (onDelete)="removeTodo($event)" (onSave)="saveTodo($event)">
   </app-todo-list>
 </div>

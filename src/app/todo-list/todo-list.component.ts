@@ -9,4 +9,5 @@ export class TodoListComponent {
   @Input() todos;
   @Output() onComplete = new EventEmitter();
   @Output() onDelete = new EventEmitter();
+  @Output() onSave = new EventEmitter();
 }

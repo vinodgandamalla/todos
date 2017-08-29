@@ -1,5 +1,10 @@
 <div>
-  <span [ngClass]="{complete: item.complete}">{{item.label}}</span>
-  <button type="button" (click)="onChange.emit({todo: item})">Done</button>
-  <button type="button" (click)="onRemove.emit({todo: item})">Delete</button>
+
+  <span *ngIf="edit === false" [ngClass]="{complete: item.complete}">{{item.label}}</span>
+  <input *ngIf="edit === true" type="text" [(ngModel)]="item.label" />
+  <input type="checkbox" [checked]="item.complete" (click)="onChange.emit({todo: item})" />
+  <!--<!--<button type=" button " (click)="onChange.emit({todo: item}) ">Done</button>-->
+  <button *ngIf="edit === false" type=" button " (click)="onEdit()">Edit</button>
+  <button *ngIf="edit === true" type=" button " (click)="onSae.emit({todo: item})">Save</button>
+  <button type=" button " (click)="onRemove.emit({todo: item}) ">Delete</button>
 </div>
