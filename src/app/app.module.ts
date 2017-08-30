@@ -10,11 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { TodoComponent } from './todo/todo.component';
 import { Routes, RouterModule } from '@angular/router';
 import { EditTodoComponent } from './edit-todo/edit-todo.component';
+import { SearchComponent } from './search/search.component';
+import { SearchInputComponent } from './search-input/search-input.component';
 
 export const ROUTES: Routes = [
   { path: '', component: TodosComponent },
   { path: 'todo/edit/:id', component: EditTodoComponent },
-  { path: 'todo/add', component: TodoFormComponent }
+  { path: 'todo/add', component: TodoFormComponent },
+  { path: 'todo/search-todos', component: SearchComponent }
 ];
 
 @NgModule({
@@ -24,7 +27,9 @@ export const ROUTES: Routes = [
     TodoFormComponent,
     TodoListComponent,
     TodoComponent,
-    EditTodoComponent
+    EditTodoComponent,
+    SearchComponent,
+    SearchInputComponent
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(ROUTES)],
   providers: [TodoService],

@@ -40,11 +40,16 @@ export class TodoService {
   }
 
   completeTodo({ todo }) {
-    this.todos.setIn([this.todos.findIndex(item => item.id === todo.id)], {
-      id: todo.id,
-      label: todo.label,
-      complete: todo.complete
-    });
+    todo.complete = !todo.complete;
+    this.todos = this.todos.setIn(
+      [this.todos.findIndex(item => item.id === todo.id)],
+      {
+        id: todo.id,
+        label: todo.label,
+        complete: todo.complete
+      }
+    );
+
     // this.todos = this.todos.map(
     // item =>
     // item.id === todo.id
@@ -81,5 +86,9 @@ export class TodoService {
     //         : item
     //   );
     // }
+  }
+  searchTodo({ input }) {
+    console.log(this.todos.find(todo => todo.label === input));
+    return List([this.todos.find(todo => todo.label === input)]);
   }
 }
