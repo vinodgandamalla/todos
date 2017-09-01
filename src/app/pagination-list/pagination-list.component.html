@@ -1,0 +1,4 @@
+<div>
+  <app-todo-list [todos]="this.todos"></app-todo-list>
+  <app-pagination [count]="this.count" [first]="this.first" [last]="this.last" (next)=(next($event)) (prev)=(previous($event))></app-pagination>
+</div>
