@@ -13,32 +13,18 @@ export class PaginationListComponent {
   last = 3;
   count = this.todoService.getTodos().count();
   previous() {
-    this.first = this.first - 6;
-    this.last = this.last - 6;
+    this.first = this.first - 3;
+    this.last = this.last - 3;
+
     this.temp = this.store.slice(this.first, this.last);
     this.todos = this.temp;
   }
   next() {
-    console.log(this.store.toJS());
+    this.first = this.first + 3;
+    this.last = this.last + 3;
     this.temp = this.store.slice(this.first, this.last);
     this.todos = this.temp;
-    this.first = this.first + 3;
-    if (this.last > this.count) {
-      this.last = this.count;
-    }
-    {
-      this.last = this.last + 3;
-    }
   }
 
-  constructor(private todoService: TodoService) {
-    if (this.todoService.getTodos().count() < 3) {
-      this.first = 0;
-      this.last = 3;
-    }
-    {
-      this.first = 3;
-      this.last = 6;
-    }
-  }
+  constructor(private todoService: TodoService) {}
 }
