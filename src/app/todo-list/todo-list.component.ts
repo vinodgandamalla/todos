@@ -6,4 +6,5 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TodoListComponent {
   @Input() todos;
+  @Output() delete = new EventEmitter();
 }

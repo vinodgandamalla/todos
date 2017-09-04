@@ -11,5 +11,6 @@ import { TodoService } from '../todo.service';
 })
 export class TodoComponent {
   @Input() item;
+  @Output() delete = new EventEmitter();
   constructor(public todoService: TodoService) {}
 }

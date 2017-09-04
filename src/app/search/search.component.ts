@@ -9,6 +9,6 @@ export class SearchComponent {
   todos = this.todoService.getTodos();
   constructor(private todoService: TodoService) {}
   searchTodo({ input }) {
-    this.todos = this.todoService.searchTodo({ input });
+    // this.todos = this.todoService.searchTodo({ input });
   }
 }

@@ -3,6 +3,7 @@ import { List } from 'immutable';
 
 @Injectable()
 export class TodoService {
+  temp;
   todos: List<{ label: string; id: number; complete: boolean }> = List([
     {
       label: 'Eat pizza',
@@ -89,6 +90,9 @@ export class TodoService {
   }
   searchTodo({ input }) {
     console.log(this.todos.find(todo => todo.label === input));
-    return List([this.todos.find(todo => todo.label === input)]);
+    this.temp = this.todos.filter(
+      item => (item.label.indexOf(input) !== -1 ? true : false)
+    );
+    return this.temp;
   }
 }

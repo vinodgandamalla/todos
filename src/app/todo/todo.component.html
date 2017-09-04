@@ -2,5 +2,5 @@
   <span [ngClass]="{complete: item.complete}">{{item.label}}</span>
   <input type="checkbox" [checked]="item.complete" (click)="this.todoService.completeTodo({todo: item})" />
   <a [routerLink]="['/todo/edit', item.id]"> edit</a>
-  <button type=" button " (click)="this.todoService.removeTodo({todo: item}) ">Delete</button>
+  <button type=" button " (click)="this.delete.emit({todo: item}) ">Delete</button>
 </div>
