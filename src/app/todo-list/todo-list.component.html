@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let todo of this.todos">
-    <app-todo (delete)="(delete.emit($event))" [item]="todo"></app-todo>
+    <app-todo (delete)="delete.emit($event)" [item]="todo"></app-todo>
   </li>
 </ul>
